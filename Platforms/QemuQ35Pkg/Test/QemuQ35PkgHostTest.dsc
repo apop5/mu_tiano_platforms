@@ -219,11 +219,20 @@ SetupDataPkg/Library/ConfigKnobShimLib/ConfigKnobShimPeiLib/GoogleTest/ConfigKno
     PeiServicesLib|MdePkg/Test/Mock/Library/GoogleTest/MockPeiServicesLib/MockPeiServicesLib.inf
 }
 
-NetworkPkg/Dhcp6Dxe/GoogleTest/Dhcp6DxeGoogleTest.inf
-NetworkPkg/Ip6Dxe/GoogleTest/Ip6DxeGoogleTest.inf
+NetworkPkg/Dhcp6Dxe/GoogleTest/Dhcp6DxeGoogleTest.inf {
+  <LibraryClasses>
+    UefiRuntimeServicesTableLib|MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib.inf
+}
+NetworkPkg/Ip6Dxe/GoogleTest/Ip6DxeGoogleTest.inf {
+  <LibraryClasses>
+    UefiRuntimeServicesTableLib|MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib.inf
+  <PcdsFixedAtBuild>
+    gEfiMdePkgTokenSpaceGuid.PcdDebugPropertyMask|0x02
+}
 NetworkPkg/UefiPxeBcDxe/GoogleTest/UefiPxeBcDxeGoogleTest.inf {
   <LibraryClasses>
     UefiRuntimeServicesTableLib|MdePkg/Test/Mock/Library/GoogleTest/MockUefiRuntimeServicesTableLib/MockUefiRuntimeServicesTableLib.inf
+    UefiBootServicesTableLib|MdePkg/Test/Mock/Library/GoogleTest/MockUefiBootServicesTableLib/MockUefiBootServicesTableLib.inf
 }
 
 AdvLoggerPkg/AdvLoggerOsConnectorPrm/GoogleTest/AdvLoggerOsConnectorPrmGoogleTest.inf
