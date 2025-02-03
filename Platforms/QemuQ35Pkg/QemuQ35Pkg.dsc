@@ -335,7 +335,7 @@
   NULL|MdePkg/Library/StackCheckLib/StackCheckLibStaticInit.inf
 
 [LibraryClasses.common.DXE_CORE, LibraryClasses.common.SMM_CORE, LibraryClasses.common.DXE_SMM_DRIVER, LibraryClasses.common.DXE_DRIVER, LibraryClasses.common.DXE_RUNTIME_DRIVER, LibraryClasses.common.DXE_SAL_DRIVER, LibraryClasses.common.UEFI_DRIVER, LibraryClasses.common.UEFI_APPLICATION, LibraryClasses.common.MM_CORE_STANDALONE, LibraryClasses.common.MM_STANDALONE]
-  NULL|MdePkg/Library/StackCheckLib/StackCheckLibDynamicInit.inf
+  NULL|MdePkg/Library/StackCheckLib/StackCheckLibStaticInit.inf
 
 #########################################
 # SEC Libraries
@@ -780,7 +780,7 @@
   #
   # Network Pcds
   #
-!include NetworkPkg/NetworkPcds.dsc.inc
+!include NetworkPkg/NetworkFixedPcds.dsc.inc
   gUefiCpuPkgTokenSpaceGuid.PcdCpuSmmStackSize|0x4000
   gUefiCpuPkgTokenSpaceGuid.PcdCpuSmmSyncMode|0x00
   gUefiCpuPkgTokenSpaceGuid.PcdCpuSmmApSyncTimeout|1000000
