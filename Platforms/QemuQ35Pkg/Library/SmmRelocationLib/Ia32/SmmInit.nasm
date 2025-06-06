@@ -94,6 +94,10 @@ global ASM_PFX(SmmStartup)
 
 BITS 16
 ASM_PFX(SmmStartup):
+    mov     eax, strict dword 0         ; source operand will be patched
+ASM_PFX(gPatchSmmInitCr0):
+    btr     eax, 31             ; Clear CR0.PG
+    mov     cr0, eax
     mov     eax, 0x80000001             ; read capability
     cpuid
     mov     ebx, edx                    ; rdmsr will change edx. keep it in ebx.
@@ -110,15 +114,8 @@ ASM_PFX(gPatchSmmInitCr4):
     mov     ecx, 0xc0000080             ; IA32_EFER MSR
     rdmsr
     or      eax, ebx                    ; set NXE bit if NX is available
-    mov     al, 0xfe
-    out     0x64, al ; reset the system
-    jmp     $
     wrmsr
-    mov     eax, cr0
-    and     eax, 0x9ffafff3
-    or      eax, 0x23
     mov     di, PROTECT_MODE_DS
-    mov     cr0, eax
     jmp     PROTECT_MODE_CS : dword @32bit
 
 BITS 32
