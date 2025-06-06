@@ -99,6 +99,7 @@ ASM_PFX(SmmStartup):
     mov     ebx, edx                    ; rdmsr will change edx. keep it in ebx.
     and     ebx, BIT20                  ; extract NX capability bit
     shr     ebx, 9                      ; shift bit to IA32_EFER.NXE[BIT11] position
+    xor     ebx,ebx
     mov     eax, strict dword 0         ; source operand will be patched
 ASM_PFX(gPatchSmmInitCr3):
     mov     cr3, eax
