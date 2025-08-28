@@ -1124,9 +1124,6 @@
   MsWheaPkg/MsWheaReport/Dxe/MsWheaReportDxe.inf
   MsCorePkg/MuVarPolicyFoundationDxe/MuVarPolicyFoundationDxe.inf
   MsCorePkg/AcpiRGRT/AcpiRgrt.inf
-!if $(BUILD_RUST_CODE) == TRUE
-  MsCorePkg/HelloWorldRustDxe/HelloWorldRustDxe.inf
-!endif
   MsGraphicsPkg/PrintScreenLogger/PrintScreenLogger.inf
   SecurityPkg/Hash2DxeCrypto/Hash2DxeCrypto.inf
   AdvLoggerPkg/Application/AdvancedLogDumper/AdvancedLogDumper.inf
@@ -1224,13 +1221,6 @@
   QemuPkg/Virtio10Dxe/Virtio10.inf
 
   #
-  # HID Support
-  #
-!if $(BUILD_RUST_CODE) == TRUE
-  HidPkg/UefiHidDxe/UefiHidDxe.inf
-!endif
-
-  #
   # USB Support
   #
   MdeModulePkg/Bus/Pci/UhciDxe/UhciDxe.inf
@@ -1239,15 +1229,7 @@
   MdeModulePkg/Bus/Usb/UsbBusDxe/UsbBusDxe.inf
   MdeModulePkg/Bus/Usb/UsbKbDxe/UsbKbDxe.inf
   MdeModulePkg/Bus/Usb/UsbMassStorageDxe/UsbMassStorageDxe.inf
-
-!if $(BUILD_RUST_CODE) == TRUE
-  HidPkg/UsbHidDxe/UsbHidDxe.inf {
-    <LibraryClasses>
-      UefiUsbLib|MdePkg/Library/UefiUsbLib/UefiUsbLib.inf
-  }
-!else
   MdeModulePkg/Bus/Usb/UsbMouseAbsolutePointerDxe/UsbMouseAbsolutePointerDxe.inf
-!endif
 
   #
   # TPM2 support
