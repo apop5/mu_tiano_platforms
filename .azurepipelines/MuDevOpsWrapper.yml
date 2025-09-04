@@ -18,8 +18,8 @@ resources:
     - repository: mu_devops
       type: github
       endpoint: microsoft
-      name: microsoft/mu_devops
-      ref: refs/tags/v17.0.1
+      name: apop5/mu_devops
+      ref: personal/apop5/rusty
 
 parameters:
 - name: do_ci_build
