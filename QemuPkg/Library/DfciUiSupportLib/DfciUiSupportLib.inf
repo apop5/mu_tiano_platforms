@@ -40,8 +40,8 @@
   gMsSWMProtocolGuid
 
 [Guids]
-  gEfiEventPreReadyToBootGuid
   gDfciStartOfBdsNotifyGuid
+  gEfiEventPreReadyToBootGuid
 
 [Depex]
   TRUE
