@@ -32,6 +32,7 @@ jobs:
       - vars
 
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
 
     # If matrix.container is not defined, then `image` will be null and no container will be used.
     container:
