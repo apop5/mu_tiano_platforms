@@ -78,12 +78,6 @@ jobs:
           ##############################
           # Temporary Filters for Bugs #
           ##############################
-          # Exclude CLANGPDB RELEASE builds due to PEI bug
-          - tool-chain: CLANGPDB
-            target: RELEASE
-          # Exclude SBSA CLANG builds due to ldr assembly issue
-          - tool-chain: CLANGPDB
-            platform: SBSA
 
     steps:
       # Checkout the repository to the runner or container
