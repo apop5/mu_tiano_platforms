@@ -174,6 +174,42 @@ runs:
       fi
     working-directory: ${{ inputs.working-directory }}
 
+  - name: Move firmware images
+    if: always()
+    shell: bash
+    env:
+      TEMP_DIR: ${{ steps.tempdir.outputs.path }}
+    run: |
+      shopt -s globstar nullglob
+      files=(Build/**/*.fd)
+
+      if ((${#files[@]})); then
+        mkdir -p "$TEMP_DIR/binaries"
+        echo "Moving ${#files[@]} firmware image files"
+        mv "${files[@]}" "$TEMP_DIR/binaries"
+      else
+        echo "No matching firmware image files found"
+      fi
+    working-directory: ${{ inputs.working-directory }}
+
+  - name: Move PDB files
+    if: always()
+    shell: bash
+    env:
+      TEMP_DIR: ${{ steps.tempdir.outputs.path }}
+    run: |
+      shopt -s globstar nullglob
+      files=(Build/**/PDB/*.pdb)
+
+      if ((${#files[@]})); then
+        mkdir -p "$TEMP_DIR/PDB"
+        echo "Moving ${#files[@]} PDB files"
+        mv "${files[@]}" "$TEMP_DIR/PDB"
+      else
+        echo "No matching PDB files found"
+      fi
+    working-directory: ${{ inputs.working-directory }}
+
   - name: Flash platform (stuart_build --FLASHONLY)
     if: ${{ inputs.command == 'all' || inputs.command == 'flash' }}
     continue-on-error: true
