@@ -198,3 +198,20 @@ runs:
         echo "No matching log files found"
       fi
     working-directory: ${{ inputs.working-directory }}
+
+  - name: Move Binary
+    if: always()
+    shell: bash
+    env:
+      TEMP_DIR: ${{ steps.tempdir.outputs.path }}
+    run: |
+      shopt -s globstar nullglob
+      files=(Build/Fv/*.fd)
+
+      if ((${#files[@]})); then
+        echo "Moving ${#files[@]} binary files"
+        mv "${files[@]}" "$TEMP_DIR"
+      else
+        echo "No matching binary files found"
+      fi
+    working-directory: ${{ inputs.working-directory }}
