@@ -176,6 +176,7 @@ runs:
 
   - name: Flash platform (stuart_build --FLASHONLY)
     if: ${{ inputs.command == 'all' || inputs.command == 'flash' }}
+    timeout-minutes: 10
     shell: bash
     run: |
       stuart_build -c ${{ inputs.platform-config }} --FLASHONLY ${{ steps.stuart.outputs.arguments }} \
