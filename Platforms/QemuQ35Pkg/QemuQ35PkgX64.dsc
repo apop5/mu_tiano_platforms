@@ -57,3 +57,6 @@
   MSFT:*_*_*_DLINK_FLAGS = /ALIGN:4096
   GCC:*_GCC5_*_DLINK_FLAGS = -z common-page-size=0x1000
   GCC:*_CLANGPDB_*_DLINK_FLAGS = /ALIGN:4096
+
+[BuildOptions.common]
+  GCC:*_CLANGPDB_X64_DLINK_FLAGS = /DEBUG:GHASH
