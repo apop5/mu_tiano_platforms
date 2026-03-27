@@ -185,8 +185,8 @@ runs:
 
       if ((${#files[@]})); then
         mkdir -p "$TEMP_DIR/binaries"
-        echo "Moving ${#files[@]} firmware image files"
-        mv "${files[@]}" "$TEMP_DIR/binaries"
+        echo "Copying ${#files[@]} firmware image files"
+        cp "${files[@]}" "$TEMP_DIR/binaries"
       else
         echo "No matching firmware image files found"
       fi
@@ -203,8 +203,8 @@ runs:
 
       if ((${#files[@]})); then
         mkdir -p "$TEMP_DIR/PDB"
-        echo "Moving ${#files[@]} PDB files"
-        mv "${files[@]}" "$TEMP_DIR/PDB"
+        echo "Copying ${#files[@]} PDB files"
+        cp "${files[@]}" "$TEMP_DIR/PDB"
       else
         echo "No matching PDB files found"
       fi
