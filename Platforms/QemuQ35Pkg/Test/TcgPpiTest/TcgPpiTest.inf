@@ -1,0 +1,31 @@
+## @file
+#  Exercises HashLogExtendEvent through the EDK II TCG PPI.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x0001001B
+  BASE_NAME                      = TcgPpiTest
+  FILE_GUID                      = 96F57763-5D19-47E4-BE2E-6FD83B45523A
+  MODULE_TYPE                    = PEIM
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = TcgPpiTestEntryPoint
+
+[Sources]
+  TcgPpiTest.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  SecurityPkg/SecurityPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  PeimEntryPoint
+  PeiServicesLib
+
+[Ppis]
+  gEdkiiTcgPpiGuid  ## CONSUMES
+
+[Depex]
+  gEdkiiTcgPpiGuid

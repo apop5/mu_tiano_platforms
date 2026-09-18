@@ -1,0 +1,33 @@
+## @file
+#  Verifies BaseCryptLib hash services exposed through the EDK II Crypto PPI.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x0001001B
+  BASE_NAME                      = MbedTlsPeiTest
+  FILE_GUID                      = 7C9715A7-FC38-4C9C-A6D7-5AA68BA42E6D
+  MODULE_TYPE                    = PEIM
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = MbedTlsPeiTestEntryPoint
+
+[Sources]
+  MbedTlsPeiTest.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  CryptoPkg/CryptoPkg.dec
+
+[LibraryClasses]
+  BaseCryptLib
+  BaseMemoryLib
+  DebugLib
+  MemoryAllocationLib
+  PeimEntryPoint
+
+[Ppis]
+  gEdkiiCryptoPpiGuid  ## CONSUMES
+
+[Depex]
+  gEdkiiCryptoPpiGuid
