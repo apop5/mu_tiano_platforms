@@ -140,7 +140,7 @@ class SettingsManager(UpdateSettingsManager, SetupSettingsManager, PrEvalSetting
             If no RequiredSubmodules return an empty iterable
         """
         return [
-            RequiredSubmodule("MU_BASECORE", False, ".pytool/CISettings.py"),
+            RequiredSubmodule("MU_BASECORE", False, "../OliversCi.py"),
             RequiredSubmodule("Common/MU", False, ".pytool/CISettings.py"),
             RequiredSubmodule("Common/MU_OEM_SAMPLE", False, ".pytool/CISettings.py"),
             RequiredSubmodule("Features/DEBUGGER", False, ".pytool/CISettings.py"),
